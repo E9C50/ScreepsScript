@@ -11,7 +11,7 @@ var autoCreateCreeps = {
         var toolsFinder = require('tools.finder');
 
         var myCreeps = []
-        const HARVESTER_MAX_COUNT = 4; UPGRADER_MAX_COUNT = 3; BUILDER_MAX_COUNT = 3; SUPPORTER_MAX_COUNT = 2;
+        const HARVESTER_MAX_COUNT = 4; UPGRADER_MAX_COUNT = 3; BUILDER_MAX_COUNT = 3; SUPPORTER_MAX_COUNT = 1;
 
         for (var name in Game.creeps) {
             myCreeps.push(Game.creeps[name]);
