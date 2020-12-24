@@ -5,7 +5,7 @@ var roleBuilder = {
 	run: function (creep) {
 		let allowHarvestSource = false;
 		
-		checkWorking(creep);
+		checkWorking(creep, allowHarvestSource);
 
 		if (creep.memory.working) {
 			var closeTarget = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);

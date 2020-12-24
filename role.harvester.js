@@ -14,9 +14,14 @@ var roleHarvester = {
                         structure.store.getFreeCapacity(RESOURCE_ENERGY) > 0;
                 }
             });
-            if (targets.length > 0) {
-                if (creep.transfer(targets[0], RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
-                    creep.moveTo(targets[0]);
+            if (Game.spawns.Spawn.store.getFreeCapacity() > 0) {
+                if (creep.transfer(Game.spawns.Spawn, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(Game.spawns.Spawn);
+                }
+            } else if (targets.length > 0) {
+                closeTarget = creep.pos.findClosestByRange(targets)
+                if (creep.transfer(closeTarget, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE) {
+                    creep.moveTo(closeTarget);
                 }
             } else {
                 creep.moveTo(Game.flags.HarvesterPlace);

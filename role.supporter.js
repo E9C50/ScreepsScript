@@ -5,7 +5,7 @@ var roleSupporter = {
 	run: function (creep) {
 		let allowHarvestSource = false;
 		
-        checkWorking(creep);
+        checkWorking(creep, allowHarvestSource);
 
 		if (creep.memory.working) {
             var closeTower = creep.pos.findClosestByRange(findSturctures(creep.room, [STRUCTURE_TOWER]));

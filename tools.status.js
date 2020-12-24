@@ -1,7 +1,7 @@
 const { findHasResourceStructure } = require('./tools.finder');
 
 var toolsStatus = {
-    checkWorking: function (creep) {
+    checkWorking: function (creep, allowHarvestSource) {
         // 找到有资源的仓库
         hasResourceStructure = findHasResourceStructure(creep.room);
 

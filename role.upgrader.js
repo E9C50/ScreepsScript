@@ -1,6 +1,7 @@
 var roleUpgrader = {
     run: function (creep) {
 		var toolsFinder = require('tools.finder');
+		let allowHarvestSource = false;
 
         // find all has resource structures.
         hasResourceStructure = toolsFinder.findHasResourceStructure(creep.room);
@@ -21,7 +22,7 @@ var roleUpgrader = {
                 creep.moveTo(creep.room.controller);
             }
         } else {
-			toolsFinder.getCloseResource(creep, Game.flags.UpgraderPlace, false)
+			toolsFinder.getCloseResource(creep, Game.flags.UpgraderPlace, allowHarvestSource)
         }
     }
 };

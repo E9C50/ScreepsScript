@@ -14,20 +14,21 @@ var roleBuilder = require('role.builder');
 var autoCreateCreeps = require('auto.create.creeps');
 
 module.exports.loop = function () {
-    // var tower = Game.getObjectById('bf235b406b92ec8');
-    // if(tower) {
-    //     var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
-    //         filter: (structure) => structure.hits < structure.hitsMax
-    //     });
-    //     if(closestDamagedStructure) {
-    //         tower.repair(closestDamagedStructure);
-    //     }
+    let autoAttack = false;
+    var tower = Game.getObjectById('5fe44519a6cc37b80b84b831');
+    if(tower) {
+        var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
+            filter: (structure) => structure.hits < structure.hitsMax && structure.structureType == STRUCTURE_ROAD
+        });
+        if(closestDamagedStructure) {
+            tower.repair(closestDamagedStructure);
+        }
 
-    //     var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
-    //     if(closestHostile) {
-    //         tower.attack(closestHostile);
-    //     }
-    // }
+        var closestHostile = tower.pos.findClosestByRange(FIND_HOSTILE_CREEPS);
+        if(closestHostile && autoAttack) {
+            tower.attack(closestHostile);
+        }
+    }
 
     autoCreateCreeps.run();
 
